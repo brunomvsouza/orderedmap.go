@@ -16,8 +16,6 @@ go get go.bmvs.io/orderedmap
 package main
 
 import (
-	"fmt"
-
 	"go.bmvs.io/orderedmap"
 )
 
