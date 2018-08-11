@@ -1,0 +1,20 @@
+language : go
+
+go:
+- 1.8.x
+- 1.9.x
+- 1.10.x
+- tip
+
+go_import_path: go.bmvs.io/orderedmap
+
+sudo: false
+
+before_install:
+- go get -u github.com/mattn/goveralls
+
+script:
+- go test -v -race ./...
+
+after_success:
+- goveralls -service=travis-ci
