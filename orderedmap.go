@@ -5,98 +5,40 @@
 // Package orderedmap implements a thread safe insertion ordered map.
 package orderedmap // import "go.bmvs.io/orderedmap"
 
-import (
-	"sync"
-)
+//go:generate go run internal/gen.go -naturalType interface{} -noTest true
 
-// New return a new Map implemented by OrderedMap
-func New() *OrderedMap {
-	return &OrderedMap{
-		store: make(map[interface{}]interface{}),
-		keys:  make([]interface{}, 0, 0),
-	}
-}
+//go:generate go run internal/gen.go -naturalType rune
 
-// OrderedMap insertion ordered Map implementation
-type OrderedMap struct {
-	sync.Mutex
+//go:generate go run internal/gen.go -naturalType complex128
+//go:generate go run internal/gen.go -naturalType complex64
+//go:generate go run internal/gen.go -naturalType *complex128
+//go:generate go run internal/gen.go -naturalType *complex64
 
-	store map[interface{}]interface{}
-	keys  []interface{}
-}
+//go:generate go run internal/gen.go -naturalType int
+//go:generate go run internal/gen.go -naturalType int8
+//go:generate go run internal/gen.go -naturalType int16
+//go:generate go run internal/gen.go -naturalType int32
+//go:generate go run internal/gen.go -naturalType int64
+//go:generate go run internal/gen.go -naturalType *int
+//go:generate go run internal/gen.go -naturalType *int8
+//go:generate go run internal/gen.go -naturalType *int16
+//go:generate go run internal/gen.go -naturalType *int32
+//go:generate go run internal/gen.go -naturalType *int64
 
-// Put add a key-value pair to the OrderedMap
-func (m *OrderedMap) Put(key, value interface{}) {
-	m.Lock()
-	defer m.Unlock()
+//go:generate go run internal/gen.go -naturalType uint
+//go:generate go run internal/gen.go -naturalType uint8
+//go:generate go run internal/gen.go -naturalType uint16
+//go:generate go run internal/gen.go -naturalType uint32
+//go:generate go run internal/gen.go -naturalType uint64
+//go:generate go run internal/gen.go -naturalType uintptr
+//go:generate go run internal/gen.go -naturalType *uint
+//go:generate go run internal/gen.go -naturalType *uint8
+//go:generate go run internal/gen.go -naturalType *uint16
+//go:generate go run internal/gen.go -naturalType *uint32
+//go:generate go run internal/gen.go -naturalType *uint64
+//go:generate go run internal/gen.go -naturalType *uintptr
 
-	if _, found := m.store[key]; !found {
-		m.keys = append(m.keys, key)
-	}
-
-	m.store[key] = value
-}
-
-// Get return the value of a key from the OrderedMap
-func (m *OrderedMap) Get(key interface{}) (value interface{}, found bool) {
-	m.Lock()
-	defer m.Unlock()
-
-	value, found = m.store[key]
-	return
-}
-
-// Remove remove a key-value pair from the OrderedMap
-func (m *OrderedMap) Remove(key interface{}) {
-	m.Lock()
-	defer m.Unlock()
-
-	if _, found := m.store[key]; !found {
-		return
-	}
-
-	delete(m.store, key)
-
-	for i, _ := range m.keys {
-		if m.keys[i] == key {
-			m.keys = append(m.keys[:i], m.keys[i+1:]...)
-			break
-		}
-	}
-}
-
-// Empty return if the OrderedMap in empty or not
-func (m *OrderedMap) Empty() bool {
-	m.Lock()
-	defer m.Unlock()
-
-	return len(m.store) == 0
-}
-
-// Keys return the keys of the OrderedMap in insertion order
-func (m *OrderedMap) Keys() []interface{} {
-	m.Lock()
-	defer m.Unlock()
-
-	return m.keys
-}
-
-// Values return the values of the OrderedMap in insertion order
-func (m *OrderedMap) Values() []interface{} {
-	m.Lock()
-	defer m.Unlock()
-
-	values := make([]interface{}, len(m.store))
-	for i, key := range m.keys {
-		values[i] = m.store[key]
-	}
-	return values
-}
-
-// Size return the size of the OrderedMap
-func (m *OrderedMap) Size() int {
-	m.Lock()
-	defer m.Unlock()
-
-	return len(m.store)
-}
+//go:generate go run internal/gen.go -naturalType float32
+//go:generate go run internal/gen.go -naturalType float64
+//go:generate go run internal/gen.go -naturalType *float32
+//go:generate go run internal/gen.go -naturalType *float64

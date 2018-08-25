@@ -5,7 +5,12 @@
 package orderedmap_test
 
 import (
+	"fmt"
+	"math/rand"
+	"reflect"
 	"testing"
+	"testing/quick"
+	"time"
 
 	"go.bmvs.io/orderedmap"
 )
@@ -292,4 +297,12 @@ func sameElements(a []interface{}, b []interface{}) bool {
 		}
 	}
 	return true
+}
+
+func createRandomObject(i interface{}) interface{} {
+	v, ok := quick.Value(reflect.TypeOf(i), rand.New(rand.NewSource(time.Now().UnixNano())))
+	if !ok {
+		panic(fmt.Sprintf("unsupported type %v", i))
+	}
+	return v.Interface()
 }
