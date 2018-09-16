@@ -6,6 +6,7 @@ shallow_clone: true # for startup speed
 environment:
   GOBIN: C:\gopath\bin
   GOPATH: C:\gopath
+  GO111MODULE: on
 
 platform:
 - x64
