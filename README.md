@@ -1,6 +1,6 @@
 # Insertion Ordered Map
 
-[![GoDoc Reference](https://godoc.org/go.bmvs.io/orderedmap?status.svg)](http://godoc.org/go.bmvs.io/orderedmap) [![Build Status](https://travis-ci.com/brunomvsouza/orderedmap.go.svg?branch=master)](https://travis-ci.com/brunomvsouza/orderedmap.go) [![Build status](https://ci.appveyor.com/api/projects/status/m7c7tlk6bdfh3p35/branch/master?svg=true)](https://ci.appveyor.com/project/brunomvsouza/orderedmap-go/branch/master) [![Coverage Status](https://coveralls.io/repos/github/brunomvsouza/orderedmap.go/badge.svg?branch=master)](https://coveralls.io/github/brunomvsouza/orderedmap.go)
+[![Pipeline status](https://lab.bmvs.io/bs/orderedmap.go/badges/master/pipeline.svg)](https://lab.bmvs.io/bs/orderedmap.go/commits/master) [![Pipeline status](https://ci.appveyor.com/api/projects/status/i48873sk7aej379y/branch/master?svg=true)](https://ci.appveyor.com/project/brunomvsouza/orderedmap-go-y9194/branch/master) [![Coverage report](https://lab.bmvs.io/bs/orderedmap.go/badges/master/coverage.svg)](https://lab.bmvs.io/bs/orderedmap.go/commits/master) [![Go Report Card](https://goreportcard.com/badge/lab.bmvs.io/bs/orderedmap.go)](https://goreportcard.com/report/lab.bmvs.io/bs/orderedmap.go) [![GoDoc Reference](https://godoc.org/go.bmvs.io/orderedmap?status.svg)](http://godoc.org/go.bmvs.io/orderedmap)
 
 Implementation of an insertion ordered map in Go
 
