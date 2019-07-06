@@ -57,7 +57,7 @@ func (m *OrderedMap) Remove(key interface{}) {
 
 	delete(m.store, key)
 
-	for i, _ := range m.keys {
+	for i := range m.keys {
 		if m.keys[i] == key {
 			m.keys = append(m.keys[:i], m.keys[i+1:]...)
 			break
